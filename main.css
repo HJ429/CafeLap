@@ -1,0 +1,51 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+
+/* -----------------header------------------------- */
+
+.cafelap{
+  background-color: #622A0F;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.logo, .LOGIN{
+  font-size: 18px;
+  color: azure;
+}
+
+/* -----------------header------------------------- */
+
+/* ---------------------------body------------------------ */
+.container{
+  display: flex;
+  text-align: center;
+}
+.cafe, .comm{
+  place-items: center;
+  width: 50%;
+  height: 100vh;
+ 
+}
+.cafe{
+  background-color: #599468;
+  
+}
+.comm{
+  background-color: #F5DCB7;
+ 
+}
+.btn{
+  margin-top: 10px;
+}
+
+/* ---------------------------body------------------------ */
+footer{
+  background-color: antiquewhite;
+  text-align: center;
+  bottom: 0;
+}
