@@ -7,19 +7,19 @@ function App() {
   return (
     <>
      <header>
-        <div class="cafelap">
-            <h2 class="logo">CAGE LAP</h2>
-            <a href="" class="LOGIN">LOGIN</a>
+        <div className="cafelap">
+            <h2 className="logo">CAGE LAP</h2>
+            <a href="" className="LOGIN">LOGIN</a>
         </div>
     </header>
-    <div class="container">
-        <div class="cafe">
+    <div className="container">
+        <div className="cafe">
             <h3>카페정보</h3>
-            <button onclick="">이모지 넣든 하기</button>
+            <button onClick={""}>이모지 넣든 하기</button>
         </div>
-        <div class="comm">
+        <div className="comm">
             <h3>커뮤니티</h3>
-            <button class="btn" onclick="">이모지</button>
+            <button className="btn" onClick={""}>이모지</button>
         </div>
     </div>
 <footer>
@@ -30,3 +30,4 @@ function App() {
 }
 
 export default App
+
