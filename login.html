@@ -79,8 +79,10 @@ h1{
             event.preventDefault(event);
             const userid = document.getElementById('userid').value;
             const password = document.getElementById('password').value;
-            if (userid === "user" && password === "1234") {
+            if (userid === "hotdog" && password === "1234") {
                 alert("로그인에 성공하셨습니다!");
+                document.getElementById('userid').value = '';
+                document.getElementById('password').value = '';
             } else {
                 alert("아이디 또는 비밀번호가 틀렸습니다.");
             }
