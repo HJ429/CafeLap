@@ -3,29 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-    <link rel="stylesheet" href="/main/main.css">
+    <title>Main2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Noto Sans KR", sans-serif;
+    height: 100vh; /* 화면 전체 높이를 100%로 설정 */
+    overflow: hidden; /* 화면 넘침을 숨기기 */
+}
+/* ---------------------------body------------------------ */
+.main-total-box{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    text-align: center;
+    width: 1200px;
+}
+.main-box{
+  justify-content: space-between; 
+}
+.cafe{
+    background-color: #599468;
+    
+}
+.comm{
+    background-color: #F5DCB7;
+   
+}
+.btn{
+    margin-top: 10px;
+}
+
+/* ---------------------------body------------------------ */
+
+    </style>
 </head>
 <body>
-    <header>
-        <div class="cafelap">
-            <h2 class="logo">CAGE LAP</h2>
-            <a href="" class="LOGIN">LOGIN</a>
-        </div>
-    </header>
-    <div class="container">
-        <div class="cafe">
-            <h3>카페정보</h3>
-            <button onclick="">이모지 넣든 하기</button>
-        </div>
-        <div class="comm">
-            <h3>커뮤니티</h3>
-            <button class="btn" onclick="">이모지</button>
-        </div>
+    <div class="main-total-box">
+        <section class="main-box">
+            <div class="cafe">
+                <h3>카페정보</h3>
+                <button onclick="">이모지 넣든 하기</button>
+            </div>
+            <div class="comm">
+                 <h3>커뮤니티</h3>
+                 <button class="btn" onclick="">이모지</button>
+            </div>
+        </section>
     </div>
-<footer>
-    @CafeLap
-</footer>
 </body>
 </html>
-
