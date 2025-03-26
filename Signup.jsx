@@ -54,7 +54,7 @@ const Signup = () => {
         <div className="signup-container">
         <h2>회원가입</h2>
         <form onSubmit={handleSubmit}>
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="아이디" required/>
+          <input className='signup-text' type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="아이디" required/>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="이메일" required />
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}  placeholder="비밀번호" required />
           <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="비밀번호 확인" required />
@@ -77,8 +77,8 @@ const Signup = () => {
 
           {userType === '카페사장' && (
             <>
-              <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="주소" readOnly className="address"/>
-              <input type="text" value={detailAddress} onChange={(e) => setDetailAddress(e.target.value)} placeholder="상세주소" required />
+              <input className="signup-address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="주소" readOnly />
+              <input className='signup-adr-p' type="text" value={detailAddress} onChange={(e) => setDetailAddress(e.target.value)} placeholder="상세주소" required />
             </>
           )}
 
