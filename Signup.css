@@ -24,7 +24,7 @@
     font-weight: 600;
   }
   
-  input[type="text"],
+  .signup-text,
   input[type="email"],
   input[type="password"],
   input[type="tel"] {
@@ -37,7 +37,7 @@
     transition: border-color 0.3s ease;
   }
   
-  input[type="text"]:focus,
+  .signup-text:focus,
   input[type="email"]:focus,
   input[type="password"]:focus,
   input[type="tel"]:focus {
@@ -104,7 +104,7 @@
     background-color: #974f2b;
   }
   
-  .addressContainer .address,
+  .addressContainer .signup-address,
   .addressContainer #detailAddress {
     width: 100%;
     padding: 12px;
