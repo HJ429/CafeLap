@@ -27,7 +27,8 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="login-container">
+        <div className="login-total-box">
+            <div className="login-container">
             <h2>카페연구실 로그인</h2>
             <form onSubmit={handleSubmit}>
                 <input
@@ -49,15 +50,17 @@ const LoginPage = () => {
                 <input type="submit" value="로그인" />
                 {errorMessage && <div className="error">{errorMessage}</div>}
             </form>
-            <div className="footer">
-                <a href="cafemain.jsx" id="main-link">
-                    메인으로
-                </a>
-                <a href="signup.jsx" id="signup-link">
-                    회원가입
-                </a>
+                <div className="footer">
+                    <a href="cafemain.jsx" id="main-link">
+                        메인으로
+                    </a>
+                    <a href="signup.jsx" id="signup-link">
+                        회원가입
+                    </a>
+                </div>
             </div>
         </div>
+        
     );
 };
 
