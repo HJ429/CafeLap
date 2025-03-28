@@ -52,26 +52,26 @@ const Signup = () => {
   return (
     <div className="signup-total-box">
         <div className="signup-container">
-        <h2>회원가입</h2>
+        <h2 className='signup-h2'>회원가입</h2>
         <form onSubmit={handleSubmit}>
           <input className='signup-text' type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="아이디" required/>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="이메일" required />
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}  placeholder="비밀번호" required />
-          <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="비밀번호 확인" required />
+          <input className='signup-email' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="이메일" required />
+          <input className='signup-pwd' type="password" value={password} onChange={(e) => setPassword(e.target.value)}  placeholder="비밀번호" required />
+          <input className='signup-pwd-ck' type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="비밀번호 확인" required />
 
-          <div className="user-type">
+          <div className="signup-user-type">
             <label>
-              <input type="radio" name="userType" value="일반회원" checked={userType === '일반회원'} onChange={handleUserTypeChange} required />
+              <input className='signup-radio-n' type="radio" name="userType" value="일반회원" checked={userType === '일반회원'} onChange={handleUserTypeChange} required />
               일반회원 </label>
             <label>
-              <input type="radio" name="userType" value="카페사장" checked={userType === '카페사장'} onChange={handleUserTypeChange} required />
+              <input className='signup-radio-c' type="radio" name="userType" value="카페사장" checked={userType === '카페사장'} onChange={handleUserTypeChange} required />
               카페사장
-            </label>
+            </label> 
           </div>
           {userType === '카페사장' && (
             <div className="address-container">
-              <input type="text" value={zipcode} onChange={(e) => setZipcode(e.target.value)} placeholder="우편번호" readOnly className="zipcode" />
-              <button type="button" onClick={handlePostcodeSearch}> 우편번호 찾기 </button>
+              <input className="zipcode" type="text" value={zipcode} onChange={(e) => setZipcode(e.target.value)} placeholder="우편번호" readOnly />
+              <button className='adr-btn' type="button" onClick={handlePostcodeSearch}> 우편번호 찾기 </button>
             </div>
           )}
 
@@ -82,7 +82,7 @@ const Signup = () => {
             </>
           )}
 
-          <input type="submit" value="회원가입" />
+          <input className='sigh-submit' type="submit" value="회원가입" />
           {errorMessage && <div className="error">{errorMessage}</div>}
         </form>
         <div className="footer">
