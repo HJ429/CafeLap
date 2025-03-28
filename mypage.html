@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카페연구소 MY PAGE</title>
+    <style>
+        .mypage-total-box{
+            margin: 0 auto;
+            height: 100vh;
+            display: flex;
+            flex-direction: column; /* 세로로 배치 */
+            justify-content: center;
+            align-items: center;
+            width: 1200px;
+        }
+        .mypage-box-h1{
+            background-color: #ffffff;
+            display: flex;
+            justify-content: left; /* 텍스트 수평 왼쪽 정렬 */
+            align-items: center;     /* 텍스트 수직 중앙 정렬 */
+            width: 1200px;
+            height: 150px;
+            font-size: 26px;
+        }
+        .mypage-box-section{
+            display: flex;
+            justify-content: space-between; /* 좌우로 나누어 배치 */
+            width: 100%; /* 전체 너비를 사용 */
+            height: 100%;
+            border: 1px solid #ccc;
+        }
+        .mypage-box{
+            background-color: #ffffff;
+            width: 50%;  
+            height: 80%;
+            flex-direction: column; /* 자식 요소들을 세로로 배치*/
+            padding: 10px;
+            /* border-radius: 10px; */
+        }
+        .mypage-img-box-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .mypage-img-box {
+            width: 300px; /* 상자의 너비를 설정 */
+            height: 300px; /* 상자의 높이를 설정 */
+            overflow: hidden; /* 이미지가 상자를 벗어나지 않도록 잘라냄 */
+            border-radius: 50%; /* 상자 자체를 원형으로 만들기 */
+            display: flex; /* flexbox 활성화 */
+            justify-content: center; /* 가로로 중앙 정렬 */
+            align-items: center; /* 세로로 중앙 정렬 */
+            margin: 0 auto; /* 중앙 정렬을 위해 좌우 여백을 자동으로 설정 */
+        }
+
+        .mypage-img {
+            width: 100%; /* 이미지의 너비를 상자의 100%로 설정 */
+            height: 100%; /* 이미지의 높이를 상자의 100%로 설정 */
+            object-fit: cover; /* 이미지의 비율을 유지하면서 상자 크기에 맞게 자르기 */
+            border-radius: 50%; /* 상자 자체를 원형으로 만들기 */
+        }
+        .mypage-p-box{
+            background-color: #f1f3f5 ;
+            border-radius: 8px;
+            padding: 5px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;  /* 세로 중앙 정렬 */
+        }
+        .mypage-p{
+            display: flex;
+            justify-content: flex-start; /* 가로 방향으로 왼쪽 정렬 */
+            align-items: flex-start;  /* 세로 방향으로 왼쪽 정렬 */
+            flex-direction: column; /* 세로로 배치 */
+            margin-left: 5px;
+            margin: 0;  /* 마진을 0으로 설정하여 간격을 줄임 */
+        }
+        .mypage-username{
+            display: flex;
+            justify-content: flex-start; /* 가로 방향으로 왼쪽 정렬 */
+            align-items: flex-start;  /* 세로 방향으로 왼쪽 정렬 */
+            flex-direction: column; /* 세로로 배치 */
+            margin-left: 5px;
+            margin: 0;  /* 마진을 0으로 설정하여 간격을 줄임 */
+        }
+        .mypage-pwd-box{
+            background-color: #f1f3f5;
+            padding: 0 5px;
+            border-radius: 8px;
+        }
+        .mypage-p-pwd{
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .mypage-btn-pwd{
+            border-radius: 8px;
+            border: 0.5px solid #535050;
+        }
+        .mypage-p-bri{
+            background-color: #f1f3f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+            padding: 0 5px;
+            border-radius: 8px;
+        }
+        .mypage-btn-bri{
+            margin-left: 5px;
+            border-radius: 8px;
+            border: 0.5px solid #535050;
+        }
+        .mypage-p-adr{
+            background-color: #f1f3f5 ;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 50px;
+            padding: 0 5px;
+            border-radius: 8px;
+        }
+        .mypage-btn-adr{
+            margin-left: 5px;
+            border-radius: 8px;
+            border: 0.5px solid #535050;
+        }
+        .mypage-bye-box{
+            margin: 30px 0;
+            width: 600px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .mypage-btn-bye{
+            width: 200px;
+            height: 50px;
+            border-radius: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #F5DCB7; 
+            border: 0.5px solid #535050;
+        }
+        .mypage-btn-bye:hover {
+            background-color: #FFA128; /* 마우스 오버 시 배경색을 흰색으로 변경 */
+            color: rgb(0, 0, 0); /* 마우스 오버 시 텍스트 색상을 빨간색으로 변경 */
+        }
+        .mypage-posts-box{
+            background-color: tomato;
+            width: 50%;
+            flex-direction: column;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .mypage-posts{
+            background-color: wheat;
+            border-radius: 8px;
+            padding: 3px;
+        }
+        .mypage-comments{
+            background-color: yellow;
+            border-radius: 8px;
+            padding: 3px;
+        }
+        .mypage-comments-list{
+            background-color: aquamarine;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="mypage-total-box">
+        <div class="mypage-box-h1">
+            <h1 class="mypage-h1">My Page</h1><hr class="mypage-hr">
+        </div>
+        <section class="mypage-box-section">
+        <div class="mypage-box">
+            <div class="mypage-img-box-box">
+                <div class="mypage-img-box">
+                    <img class="mypage-img" src="./comm2.jpg" alt="사진">
+                </div>
+            </div>
+            <hr class="mypage-hr-1">
+            <div class="mypage-p-box">
+                <p class="mypage-p">아이디 : hotdog</p>
+                <span class="mypage-username">사용자이름 : 비비빅</span>
+            </div>
+            <hr class="mypage-hr">
+            <div class="mypage-pwd-box">
+                <p class="mypage-p-pwd">비밀번호 : 12344
+                <button class="mypage-btn-pwd" onclick="showChangePassword()">비밀번호 변경</button>
+                 </p>
+            </div>
+            <hr class="mypage-hr">
+            <p class="mypage-p-bri">생년월일 : 2025-03-28
+            <button class="mypage-btn-bri" onclick="showChangeDob()">생년월일 수정</button>
+            </p><hr class="mypage-hr">
+            <p class="mypage-p-adr">주소 : 부산 부산진구 양정동 쩐다빌라 204호
+            <button class="mypage-btn-adr" onclick="showChangeAddress()">주소 변경</button>
+            </p>
+            <div class="mypage-bye-box">
+                <button class="mypage-btn-bye" onclick="deleteAccount()">회원 탈퇴</button>
+            </div>         
+        </div>
+        <div class="mypage-posts-box">
+            <div class="mypage-posts">
+                <h2 class="mypage-h2">내가 쓴 글</h2>
+                <div class="mypage-posts-list">
+                    ...
+                    <!-- 내가 쓴 글 리스트가 동적으로 여기에 표시됨 -->
+                </div>
+            </div>
+            <hr class="mypage-hr2">
+            <div class="mypage-comments">
+                <h2 class="mypage-h2">내가 쓴 댓글</h2>
+                <div class="mypage-comments-list">
+                    <!-- 내가 쓴 댓글 리스트가 동적으로 여기에 표시됨 -->
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    <script src="script.js"></script>
+    </div>
+</body>
+</html>
