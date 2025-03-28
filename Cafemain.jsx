@@ -20,22 +20,25 @@ const Cafemain = () => {
   };
 
   return (
-    <div className="main-total-box">
+    <div className="main-box-total">
+      <div className="main-total-box">
       <section className="main-box">
         <div className="cafe" onClick={navigateToCafe}>
           <div className="cafe-font">
-            <h3>CAFE STORE</h3> <hr />
-            <p>스토어</p>
+            <h3 className="cafe-h3">CAFE STORE</h3> <hr />
+            <p className='cafe-p'>스토어</p>
           </div>
         </div>
         <div className="comm" onClick={navigateToComm}>
           <div className="comm-font">
-            <h3>COMMUNITY</h3> <hr />
-            <p>소통창</p>
+            <h3 className='comm-h3'>COMMUNITY</h3> <hr />
+            <p className='comm=p'>소통창</p>
           </div>
         </div>
       </section>
     </div>
+    </div>
+    
   );
 };
 
