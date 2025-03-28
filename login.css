@@ -20,15 +20,15 @@
     text-align: center;
 }
 
-h2 {
+.login-h2 {
     color: #333;
     font-size: 24px;
     margin-bottom: 25px;
     font-weight: 600;
 }
 
-input[type="text"],
-input[type="password"] {
+#username,
+#password {
     width: 100%;
     padding: 12px;
     margin-bottom: 18px;
@@ -39,13 +39,13 @@ input[type="password"] {
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+#username:focus,
+#password:focus {
     border-color: #622a0f;
     outline: none;
 }
 
-input[type="submit"] {
+#submit {
     background-color: #622a0f;
     color: white;
     border: none;
@@ -57,7 +57,7 @@ input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
+#submit:hover {
     background-color: #622a0f;
 }
 
@@ -68,7 +68,7 @@ input[type="submit"]:hover {
     display: block;
 }
 
-.footer {
+.login-pont {
     margin-top: 20px;
     font-size: 14px;
     color: #777;
@@ -76,12 +76,12 @@ input[type="submit"]:hover {
     justify-content: space-between;
 }
 
-.footer a {
+.login-pont a {
     color: #00796b;
     text-decoration: none;
     font-size: 14px;
 }
 
-.footer a:hover {
+.login-pont a:hover {
     text-decoration: underline;
 }
