@@ -1,6 +1,7 @@
 /* Signup.module.css */
 
 .signup-total-box{
+  background-color: #555;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -25,8 +26,8 @@
   }
   
   .signup-text,
-  input[type="email"],
-  input[type="password"],
+  .signup-email,
+  .signup-pwd,
   input[type="tel"] {
     width: 100%;
     padding: 12px;
