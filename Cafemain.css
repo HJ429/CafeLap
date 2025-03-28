@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css");
 
-body {
+.main-box-total {
     /* font-family: "Noto Sans KR", sans-serif; */
     font-family: "Montserrat", sans-serif;
     height: 100%; /* 화면 전체 높이를 100%로 설정 */
@@ -10,24 +10,7 @@ body {
     position: relative;
 }
 
-/* ---------------------------body------------------------ */
-.navbar{
-    position: fixed; /* 절대 위치 설정 */
-    top: 0; /* 상단으로 위치 설정 */
-    margin-top: 10px;
-    left: 0; /* 왼쪽으로 위치 설정 */
-    justify-content: right;
-    width: 1200px; /* 너비를 100%로 설정 */
-    height: 30px;
-    z-index: 999;
-}
 
-nav i {
-    font-size: 24px; /* 아이콘 크기 조정 */
-    color: green; /* 아이콘 색상 */
-}
-
-/* ---------------------------NAV------------------------ */
 .main-total-box {
     display: flex;
     justify-content: center;
@@ -95,10 +78,10 @@ nav i {
     z-index: 0; /* 텍스트가 이미지 위에 표시되도록 */
     transition: transform 0.3s ease, color 0.5s ease;
 }
-.cafe-font h3{
+.cafe-h3{
     font-size: 80px;
 }
-.cafe-font p{
+.cafe-p{
     font-size: 25px;
     margin-top: 20px;
     color: rgb(255, 255, 255);
@@ -147,10 +130,10 @@ nav i {
     z-index: 1; /* 텍스트가 이미지 위에 표시되도록 */
     transition: transform 0.3s ease, color 0.5s ease;
 }
-.comm-font h3{
+.comm-h3{
     font-size: 80px;
 }
-.comm-font p{
+.comm-p{
     font-size: 25px;
     margin-top: 10px;
     color: rgb(255, 255, 255);
@@ -162,8 +145,4 @@ nav i {
 .comm:hover .comm-font {
     transform: translateY(-30px); /* 텍스트가 위로 올라감 */
     color: rgb(0, 0, 0); /* 텍스트 색이 흰색으로 변함 */
-}
-
-.btn {
-    margin-top: 10px;
 }
