@@ -1,0 +1,195 @@
+/* MyPage.css */
+.mypage-total-box {
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1200px;
+  }
+
+.mypage-box-h1{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: left; /* 텍스트 수평 왼쪽 정렬 */
+    align-items: center;     /* 텍스트 수직 중앙 정렬 */
+    width: 1200px;
+    height: 150px;
+    font-size: 26px;
+}
+.mypage-box-section{
+    display: flex;
+    justify-content: space-between; /* 좌우로 나누어 배치 */
+    width: 100%; /* 전체 너비를 사용 */
+    height: 100%;
+    border: 1px solid #ccc;
+}
+.mypage-box{
+    background-color: #ffffff;
+    width: 50%;  
+    height: 80%;
+    flex-direction: column; /* 자식 요소들을 세로로 배치*/
+    padding: 10px;
+    /* border-radius: 10px; */
+}
+.mypage-img-box-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+.mypage-img-box {
+    width: 300px; /* 상자의 너비를 설정 */
+    height: 300px; /* 상자의 높이를 설정 */
+    overflow: hidden; /* 이미지가 상자를 벗어나지 않도록 잘라냄 */
+    border-radius: 50%; /* 상자 자체를 원형으로 만들기 */
+    display: flex; /* flexbox 활성화 */
+    justify-content: center; /* 가로로 중앙 정렬 */
+    align-items: center; /* 세로로 중앙 정렬 */
+    margin: 0 auto; /* 중앙 정렬을 위해 좌우 여백을 자동으로 설정 */
+}
+
+.mypage-img {
+    width: 100%; /* 이미지의 너비를 상자의 100%로 설정 */
+    height: 100%; /* 이미지의 높이를 상자의 100%로 설정 */
+    object-fit: cover; /* 이미지의 비율을 유지하면서 상자 크기에 맞게 자르기 */
+    border-radius: 50%; /* 상자 자체를 원형으로 만들기 */
+}
+.mypage-p-box{
+    background-color: #f1f3f5 ;
+    border-radius: 8px;
+    padding: 5px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* 세로 중앙 정렬 */
+}
+.mypage-p{
+    display: flex;
+    justify-content: flex-start; /* 가로 방향으로 왼쪽 정렬 */
+    align-items: flex-start;  /* 세로 방향으로 왼쪽 정렬 */
+    flex-direction: column; /* 세로로 배치 */
+    margin-left: 5px;
+    margin: 0;  /* 마진을 0으로 설정하여 간격을 줄임 */
+}
+.mypage-username{
+    display: flex;
+    justify-content: flex-start; /* 가로 방향으로 왼쪽 정렬 */
+    align-items: flex-start;  /* 세로 방향으로 왼쪽 정렬 */
+    flex-direction: column; /* 세로로 배치 */
+    margin-left: 5px;
+    margin: 0;  /* 마진을 0으로 설정하여 간격을 줄임 */
+}
+.mypage-pwd-box{
+    background-color: #f1f3f5;
+    padding: 0 5px;
+    border-radius: 8px;
+}
+.mypage-p-pwd{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mypage-btn-pwd{
+    border-radius: 8px;
+    border: 0.5px solid #535050;
+    background-color: #F5DCB7; 
+    border: 0.5px solid #535050;
+}
+.mypage-btn-pwd:hover {
+    background-color: #FFA128; /* 마우스 오버 시 배경색을 흰색으로 변경 */
+    color: rgb(0, 0, 0); /* 마우스 오버 시 텍스트 색상을 빨간색으로 변경 */
+}
+
+.mypage-p-bri{
+    background-color: #f1f3f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 5px;
+    border-radius: 8px;
+}
+.mypage-btn-bri{
+    margin-left: 5px;
+    border-radius: 8px;
+    border: 0.5px solid #535050;
+}
+.mypage-p-adr{
+    background-color: #f1f3f5 ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 5px;
+    border-radius: 8px;
+}
+.mypage-btn-adr{
+    margin-left: 5px;
+    border-radius: 8px;
+    border: 0.5px solid #535050;
+}
+.mypage-bye-box{
+    margin: 30px 0;
+    width: 600px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.mypage-btn-bye{
+    width: 200px;
+    height: 50px;
+    border-radius: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #F5DCB7; 
+    border: 0.5px solid #535050;
+}
+.mypage-btn-bye:hover {
+    background-color: #FFA128; /* 마우스 오버 시 배경색을 흰색으로 변경 */
+    color: rgb(0, 0, 0); /* 마우스 오버 시 텍스트 색상을 빨간색으로 변경 */
+}
+.left-hr{
+    width: 20px;
+    margin-right: 0;
+}
+ .empty-box{
+    width: 20%;
+    height: 35px;
+ }
+.mypage-posts-box{
+    background-color: #ffffff;
+    width: 50%;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    border-right: #535050;
+}
+.mypage-posts{
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    padding: 5px;
+}
+.mypage-posts-list{
+    padding: 0 5px;
+}
+.mypage-hr2{
+    margin: 20px;
+}
+.mypage-comments{
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    padding: 5px;
+}
+.mypage-comments-list{
+    padding: 0 5px;
+}  
