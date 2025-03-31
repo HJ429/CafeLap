@@ -58,7 +58,7 @@ const Signup = () => {
           <input className='signup-email' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="이메일" required />
           <input className='signup-pwd' type="password" value={password} onChange={(e) => setPassword(e.target.value)}  placeholder="비밀번호" required />
           <input className='signup-pwd-ck' type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="비밀번호 확인" required />
-
+          <input className='signup-niname' type="password" value={password} onChange={(e) => setPassword(e.target.value)}  placeholder="닉네임" required />
           <div className="signup-user-type">
             <label>
               <input className='signup-radio-n' type="radio" name="userType" value="일반회원" checked={userType === '일반회원'} onChange={handleUserTypeChange} required />
@@ -83,9 +83,9 @@ const Signup = () => {
           )}
 
           <input className='sigh-submit' type="submit" value="회원가입" />
-          {errorMessage && <div className="error">{errorMessage}</div>}
+          {errorMessage && <div className="sigh-error">{errorMessage}</div>}
         </form>
-        <div className="footer">
+        <div className="sigh-footer">
           <a href="login.jsx" id="login-link">로그인</a> |
           <a href="cafe_main.jsx" id="terms-link">메인으로</a>
         </div>
