@@ -28,7 +28,11 @@
   .signup-text,
   .signup-email,
   .signup-pwd,
-  input[type="tel"] {
+  .signup-pwd-ck,
+  .signup-niname,
+  .signup-address,
+  .signup-adr-p,
+  .zipcode {
     width: 100%;
     padding: 12px;
     margin-bottom: 18px;
@@ -37,17 +41,17 @@
     box-sizing: border-box;
     transition: border-color 0.3s ease;
   }
-  
   .signup-text:focus,
-  input[type="email"]:focus,
-  input[type="password"]:focus,
-  input[type="tel"]:focus {
+  .signup-email:focus,
+  .signup-pwd:focus,
+  .signup-pwd-ck:focus,
+  .signup-niname:focus {
     border-color: #964b25;
     outline: none;
   }
   
-  input[type="submit"] {
-    background-color: #622a0f;
+  .sigh-submit {
+    background-color: #F5DCB7;
     color: white;
     border: none;
     padding: 12px;
@@ -57,41 +61,40 @@
     transition: background-color 0.3s ease;
   }
   
-  input[type="submit"]:hover {
-    background-color: #622a0f;
+  .sigh-submit:hover {
+    background-color: #FFA128;
   }
-  
-  .userType {
-    text-align: left;
+  .signup-user-type {
+    text-align: center;
     margin-bottom: 20px;
   }
   
-  .userType label {
+  .signup-user-type label {
     display: inline-block;
     margin-right: 20px;
     font-size: 14px;
     color: #555;
   }
   
-  .addressContainer {
+  .address-container {
     display: flex;
     gap: 10px;
   }
   
-  .addressContainer .zipcode,
-  .addressContainer button {
+  .address-container .zipcode,
+  .adr-btn{
     height: 40px;
-    font-size: 14px;
+    font-size: 12px;
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
   
-  .addressContainer .zipcode {
+  .address-container .zipcode {
     flex: 1;
     padding: 10px;
   }
   
-  .addressContainer button {
+  .adr-btn {
     background-color: #622a0f;
     color: white;
     cursor: pointer;
@@ -101,12 +104,12 @@
     padding: 10px 0;
   }
   
-  .addressContainer button:hover {
+  .adr-btn:hover {
     background-color: #974f2b;
   }
   
-  .addressContainer .signup-address,
-  .addressContainer #detailAddress {
+  .address-container .signup-address,
+  .address-container #detailAddress {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
@@ -114,26 +117,26 @@
     border: 1px solid #ccc;
   }
   
-  .error {
+  .sigh-error {
     color: red;
     font-size: 14px;
     margin-top: 10px;
     display: none;
   }
   
-  .footer {
+  .sigh-footer {
     margin-top: 20px;
     font-size: 14px;
     color: #777;
   }
   
-  .footer a {
-    color: #00796b;
+  .sigh-footer a {
+    color: #964b25;
     text-decoration: none;
     font-size: 14px;
   }
   
-  .footer a:hover {
+  .sigh-footer a:hover {
     text-decoration: underline;
   }
   
