@@ -1,5 +1,6 @@
 import React from "react";
 import "./MyPage.css"; // 별도의 CSS 파일로 스타일링을 분리합니다.
+import { useNavigate } from "react-router-dom";
 
 const MyPage = () => {
   const showChangePassword = () => {
@@ -17,10 +18,23 @@ const MyPage = () => {
     console.log("주소 변경");
   };
 
+  const navigate = useNavigate();
   const deleteAccount = () => {
     // 회원 탈퇴 로직
-    console.log("회원 탈퇴");
-  };
+    const confirmDelete = window.confirm("정말 탈퇴하시겠습니까?");
+    if (confirmDelete) {
+      // 탈퇴 로직 실행 (예: 서버에 탈퇴 요청)
+      console.log("회원 탈퇴");
+
+      // 탈퇴 완료 후 메시지 표시 및 메인 화면으로 돌아가기
+      alert("탈퇴되셨습니다.");
+      
+      // 메인 화면으로 이동 (여기서는 '/'가 메인 페이지로 가정)
+      navigate('/');
+    } else {
+      console.log("회원 탈퇴 취소");
+    }
+    };
 
   return (
     <div className="mypage-total-box">
