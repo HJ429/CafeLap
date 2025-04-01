@@ -1,12 +1,13 @@
 /* MyPage.css */
 .mypage-total-box {
     margin: 0 auto;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 1200px;
+    background-color: #f4f4f4;
   }
 
 .mypage-box-h1{
@@ -55,6 +56,10 @@
     height: 100%; /* 이미지의 높이를 상자의 100%로 설정 */
     object-fit: cover; /* 이미지의 비율을 유지하면서 상자 크기에 맞게 자르기 */
     border-radius: 50%; /* 상자 자체를 원형으로 만들기 */
+    /* background-color: #FFA128; */
+}
+.mypage-hr-1{
+    margin-bottom: 10px;
 }
 .mypage-p-box{
     background-color: #f1f3f5 ;
@@ -64,6 +69,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;  /* 세로 중앙 정렬 */
+}
+.mypage-hr{
+    margin: 10px 0;
 }
 .mypage-p{
     display: flex;
@@ -79,7 +87,7 @@
     align-items: flex-start;  /* 세로 방향으로 왼쪽 정렬 */
     flex-direction: column; /* 세로로 배치 */
     margin-left: 5px;
-    margin: 0;  /* 마진을 0으로 설정하여 간격을 줄임 */
+    margin: 5px 0;  /* 마진을 0으로 설정하여 간격을 줄임 */
 }
 .mypage-pwd-box{
     background-color: #f1f3f5;
@@ -97,6 +105,7 @@
     border: 0.5px solid #535050;
     background-color: #F5DCB7; 
     border: 0.5px solid #535050;
+    padding: 5px;
 }
 .mypage-btn-pwd:hover {
     background-color: #FFA128; /* 마우스 오버 시 배경색을 흰색으로 변경 */
@@ -116,6 +125,12 @@
     margin-left: 5px;
     border-radius: 8px;
     border: 0.5px solid #535050;
+    background-color: #F5DCB7; 
+    padding: 5px;
+}
+.mypage-btn-bri:hover {
+    background-color: #FFA128; /* 마우스 오버 시 배경색을 흰색으로 변경 */
+    color: rgb(0, 0, 0); /* 마우스 오버 시 텍스트 색상을 빨간색으로 변경 */
 }
 .mypage-p-adr{
     background-color: #f1f3f5 ;
@@ -130,6 +145,12 @@
     margin-left: 5px;
     border-radius: 8px;
     border: 0.5px solid #535050;
+    background-color: #F5DCB7; 
+    padding: 5px;
+}
+.mypage-btn-adr:hover {
+    background-color: #FFA128; /* 마우스 오버 시 배경색을 흰색으로 변경 */
+    color: rgb(0, 0, 0); /* 마우스 오버 시 텍스트 색상을 빨간색으로 변경 */
 }
 .mypage-bye-box{
     margin: 30px 0;
@@ -158,10 +179,6 @@
     background-color: #FFA128; /* 마우스 오버 시 배경색을 흰색으로 변경 */
     color: rgb(0, 0, 0); /* 마우스 오버 시 텍스트 색상을 빨간색으로 변경 */
 }
-.left-hr{
-    width: 20px;
-    margin-right: 0;
-}
  .empty-box{
     width: 20%;
     height: 35px;
@@ -171,8 +188,7 @@
     width: 50%;
     flex-direction: column;
     padding: 10px;
-    border-radius: 10px;
-    border-right: #535050;
+    border-left: 1px solid #53505065;
 }
 .mypage-posts{
     background-color: #f1f3f5;
@@ -183,7 +199,7 @@
     padding: 0 5px;
 }
 .mypage-hr2{
-    margin: 20px;
+    margin: 20px 0;
 }
 .mypage-comments{
     background-color: #f1f3f5;
