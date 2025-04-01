@@ -31,7 +31,7 @@ const MyPage = () => {
         <div className="mypage-box">
           <div className="mypage-img-box-box">
             <div className="mypage-img-box">
-              <img className="mypage-img" src="./pit/" alt="사진" />
+              <img className="mypage-img" src="src/pit/comm.jpg" alt="사진" />
             </div>
           </div>
           <hr className="mypage-hr-1" />
@@ -68,8 +68,6 @@ const MyPage = () => {
             </button>
           </div>
         </div>
-
-        <hr className="left-hr" />
         <div className="mypage-posts-box">
           <div className="empty-box"></div>
           <div className="mypage-posts">
