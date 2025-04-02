@@ -1,6 +1,7 @@
 import React from "react";
 import "./MyPage.css"; // 별도의 CSS 파일로 스타일링을 분리합니다.
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 const MyPage = () => {
@@ -65,9 +66,11 @@ const MyPage = () => {
         <div className="mypage-box">
           <div className="mypage-img-box-box">
           <img className="mypage-img-icon" src="src/pit/img icon2.png" alt="아이콘" onClick={handleIconClick} />
+           {/* 파일 선택 입력 요소 (숨김 처리) */}
+           <input type="file" id="file-input" style={{ display: "none" }} onChange={handleImageChange}/>
             <div className="mypage-img-box">
-              <img className="mypage-img" src="src/pit/comm.jpg" alt="사진" />
-
+               {/* 이미지 파일이 선택되면 해당 이미지로 변경 */}
+              <img className="mypage-img" src={imageSrc} alt="사진" />
             </div>
             <p className="mypage-img-box-p">비비빅 님! 환영합니다!</p>
           </div>
