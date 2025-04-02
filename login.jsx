@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./login.css";
+import Signup from "./Signup";
 
 const LoginPage = () => {
     const [username, setUsername] = useState("");
@@ -29,18 +30,25 @@ const LoginPage = () => {
     return (
         <div className="login-total-box">
             <div className="login-container">
-            <h2 className="login-h2">카페연구실 로그인</h2>
+            <h1 className="login-h1">
+            {/* <img className="login-logo2" src="src/pit/logo2.png" alt="로고" /> */}
+                Welcome,</h1>
+            <h2 className="login-h2" >Cafe Laboratory !
+            <img className="login-logo" src="src/pit/cat1 (2).jpg" alt="로고" />
+            </h2>
+            <hr className="login-hr"/>
+            {/* <h3 className="login-h3">카페연구소 로그인</h3> */}
             <form onSubmit={handleSubmit}>
                 <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="아이디" required/>
                 <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="비밀번호" required/>
                 <input type="submit" id="submit" value="로그인" />
-                {errorMessage && <div className="error">{errorMessage}</div>}
+                {errorMessage && <div className="lognin-error">{errorMessage}</div>}
             </form>
                 <div className="login-pont">
                     <a href="cafemain.jsx" id="main-link">
                         메인으로
                     </a>
-                    <a href="signup.jsx" id="signup-link">
+                    <a href="Signup" id="signup-link">
                         회원가입
                     </a>
                 </div>
