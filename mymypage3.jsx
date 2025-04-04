@@ -91,6 +91,7 @@ const toggleDropdown = () => {
                 <p className="mypage-img-box-p">비비빅 님! 환영합니다!</p>
                 </div>
             </div>
+            <div className="mypage-emy-box"></div>
             {/* 오른쪽 부분 */}
             <div className="mypage-box-profile-2">
               <div className="mypage-p-total-box">
