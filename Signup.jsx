@@ -1,163 +1,144 @@
-import React, { useState, useEffect }from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import'./Signup.css';
+import axios from "axios";
 
 
-const Admin = () => {
+const Signup = () => {
   const navigate = useNavigate();
-  const [openMenu, setOpenMenu] = useState({
-    member: false,
-    board: false
-  });
+  const [userid, setUserid] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [userType, setUserType] = useState('0');
+  const [postalCode, setPostalCode] = useState('');
+  const [address, setAddress] = useState('');
+  const [detailAddress, setDetailAddress] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const [isAuthorized, setIsAuthorized] = useState(null);
-
-    // ✅ 관리자 인증 체크
-    useEffect(() => {
-      const token = localStorage.getItem("token");
-      const userType = parseInt(localStorage.getItem("userType"));
-  
-      if (!token || userType !== 3) {
-        alert("관리자 페이지입니다. 로그인 해주세요.");
-        navigate("/login");
-      } else {
-        console.log("✅ 관리자 권한 확인 완료");
-      }
-    }, [navigate]);
-
-    if (isAuthorized === false) {
-      return null; // 비인가일 때는 아무것도 안 보여줌
-    }
-    
-    if (isAuthorized === null) {
-      return (
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          fontSize: "1.5rem"
-        }}>
-          🔒 관리자 권한 확인 중...
-        </div>
-      );
-    }
-  const toggleMenu = (menu) => {
-    setOpenMenu((prev) => ({
-      ...prev,
-      [menu]: !prev[menu],
-    }));
+  const handleUserTypeChange = (e) => {
+    setUserType(e.target.value);
   };
 
-  const logoutCheck = () => {
-    const confirmLogout = window.confirm("로그아웃 하시겠습니까?");
-    if (confirmLogout) {
-      alert("로그아웃 되었습니다.");
-      // 필요하다면 로그아웃 처리 추가 (예: localStorage.clear())
-      navigate("/"); // 메인 페이지로 이동
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (
+      userid === '' ||
+      username === '' ||
+      email === '' ||
+      password === '' ||
+      confirmPassword === '' ||
+      nickname === '' ||
+      !userType ||
+      (userType === '1' && (postalCode === '' || address === '' || detailAddress === '')) ||
+      (userType === '1' && detailAddress === '')
+    ) {
+      setErrorMessage('모든 항목을 정확히 입력해주세요.');
+      return;
     }
+  
+    if (password !== confirmPassword) {
+      setErrorMessage('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+  
+    // API 요청 데이터
+    const userData = {
+      userid,
+      username,
+      email,
+      password,
+      nickname,
+      userType: parseInt(userType),
+      postalCode,
+      address,
+      detailAddress,
+    };
+    console.log("보낼 데이터: ", userData);
+    try {
+      const response = await axios.post('http://localhost:8080/api/users/signup', userData, {
+        headers: { 'Content-Type': 'application/json' }
+      });
+  
+      alert(response.data); // "회원가입 성공!" 메시지
+      navigate('/login'); //로그인 페이지로 이동
+    } catch (error) {
+      console.error('회원가입 실패:', error);
+      setErrorMessage('회원가입에 실패했습니다.');
+    }
+  };
+
+  const handlePostcodeSearch = () => {
+    if (!window.daum || !window.daum.Postcode) {
+      alert('주소 API가 아직 로드되지 않았어요. 잠시 후 다시 시도해주세요.');
+      return;
+    }
+    new window.daum.Postcode({
+      oncomplete: function (data) {
+        setPostalCode(data.zonecode);
+        setAddress(data.address);
+        setDetailAddress('');
+      },
+    }).open();
   };
 
   return (
-    <div className="admin-board">
-      {/* 사이드바 */}
-      <div className="sidebar">
-          <h2 className="sidebar-h2">관리자 메뉴
-            <Link to="/">
-             <FontAwesomeIcon icon={faHouse} className="sidebar-icon"/>
-            </Link>
-          </h2>
-          <ul className="sidebar-ul">
-            <li className="sidebar-li-a"><a href="/admin/1">대시보드</a></li>
-
-            {/* 회원 관리 드롭다운 */}
-            <li>
-              <div className="dropdown-header" onClick={() => toggleMenu("member")}>
-                회원 관리
-              </div>
-
-              {openMenu.member && (
-                <ul className="dropdown-list">
-                  <li><a href="/admin/list-0"> - 일반회원 목록</a></li>
-                  <li><a href="/admin/list-1"> - 카페사장 목록</a></li>
-                </ul>
-              )}
-            </li>
-
-            {/* 게시판 관리 드롭다운 */}
-            <li>
-              <div className="dropdown-header" onClick={() => toggleMenu("board")}>
-                게시판 관리
-              </div>
-              {openMenu.board && (
-                <ul className="dropdown-list">
-                  <li><a href="/admin/Bord-1"> - 공지사항 목록</a></li>
-                  <li><a href="/admin/Bord-2">- 자주 묻는 질문 목록</a></li>
-                  <li><a href="/admin/Bord-3">- 커뮤니티 목록</a></li>
-                  <li><a href="/admin/Bord-4">- 카페등록 목록</a></li>
-                </ul>
-              )}
-            </li>
-
-            <li><a href="/admin/1">설정</a></li>
-            <li className="sidebar-logout">
-            <button className="sidebar-logout-btn" onClick={logoutCheck}>로그아웃</button>
-            </li>
-          </ul>
-        </div>
-
-      {/* 메인 컨텐츠 */}
-      <div className="main-content">
-        <h1 className="main-h1">카페연구소 관리자 대시보드</h1>
-        <div className="dashboard-cards">
-          <div className="card-card-1">
-            <h3>전체 회원</h3>
-            <p>1,250명</p>
-          </div>
-          <div className="card-card-2">
-            <h3>신규 가입</h3>
-            <p>25명</p>
+    <div className="signup-total-box">
+      <div className="showdow-box">
+        <div className="signup-img-box">
+          <div className="sinup-img-left">
+            <img src="src/pit/signupimgpng.png" alt="환영사진" />
           </div>
         </div>
-            <h1 className="admin-h1">승인대기목록</h1>
-        <table className="board-table">
-          <thead>
-            <tr className="tr-total-middle">
-              <th>번호</th>
-              <th>카페이름</th>
-              <th>작성자</th>
-              <th>등록일</th>
-              <th>비고</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[10, 9, 8].map((num) => (
-              <tr key={num} className="list-tr">
-                <td>{num}</td>
-                <td>게시판 제목 {num}</td>
-                <td>관리자</td>
-                <td>2024-03-{20 - (10 - num)}</td>
-                <td>
-                  <button>승인</button>
-                  <button className="delete-btn">거절</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="signup-container">
+        <h2 className='signup-h2'>회원가입</h2>
+        <form onSubmit={handleSubmit}>
+          <input className='signup-userid' type="text" value={userid} onChange={(e) => setUserid(e.target.value)} placeholder="아이디" required/>
+          <input className='signup-pwd' type="password" value={password} onChange={(e) => setPassword(e.target.value)}  placeholder="비밀번호" required autoComplete="new-password"/>
+          <input className='signup-pwd-ck' type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="비밀번호 확인" required autoComplete="new-password"/>
+          <input className='signup-email' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="이메일" required />
+          <input className='signup-username' type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="이름" required/>
+          <input className='signup-niname' type="text" value={nickname} onChange={(e) => setNickname(e.target.value)}  placeholder="닉네임" />
+          <div className="signup-user-type">
+            <label className='signup-radio-n'>
+              <input className='signup-radio-n' type="radio" name="userType" value="0" checked={userType === "0"} onChange={handleUserTypeChange} required />
+              일반회원
+              </label>
+            <label className='signup-radio-c'>
+              <input className='signup-radio-c' type="radio" name="userType" value="1" checked={userType === '1'} onChange={handleUserTypeChange} required />
+              카페사장
+            </label> 
+          </div>
+          {userType === '1' && (
+            <div className="address-container">
+              <input className="postalCode" type="text" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} placeholder="우편번호" readOnly />
+              <button className='adr-btn' type="button" onClick={handlePostcodeSearch}> 우편번호 찾기 </button>
+            </div>
+          )}
 
-        <div className="pagination">
-          <button className="prev-btn">이전</button>
-          <span className="active">1</span>
-          <span>2</span>
-          <span>3</span>
-          <button className="next-btn">이후</button>
+          {userType === '1' && (
+            <>
+              <input className="signup-address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} placeholder="주소" readOnly />
+              <input className='signup-adr-p' type="text" value={detailAddress} onChange={(e) => setDetailAddress(e.target.value)} placeholder="상세주소" required />
+            </>
+          )}
+
+          <input className='sigh-submit' type="submit" value="회원가입" />
+          {errorMessage && <div className="sigh-error">{errorMessage}</div>}
+        </form>
+        <div className="sigh-footer">
+          <a href="/login" id="login-link">로그인</a> |
+          <a href="/" id="terms-link">메인으로</a>
         </div>
       </div>
+      </div>
     </div>
+    
   );
 };
 
-export default Admin;
+export default Signup;
