@@ -1,0 +1,6 @@
+
+
+public interface APRepository extends JpaRepository<Users, Long> {
+    List<Users> findByUserType(int userType);
+    Users findByUserid(String userid);
+}
