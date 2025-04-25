@@ -1,0 +1,9 @@
+
+
+@Repository
+public interface SignupRes extends JpaRepository<Users, Long> {
+    Optional<Users> findByUsername(String username);
+    Optional<Users> findByEmail(String email);
+    Optional<Users> findByNickname(String nickname);
+    Optional<Users> findByUserid(String userid);
+}
