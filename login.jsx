@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -42,18 +41,21 @@ const LoginPage = () => {
             // ✅ JWT가 잘 저장되었는지 콘솔로 확인
                 console.log("JWT 토큰: ", localStorage.getItem("token"));
             
-            alert(data.message);
+            // alert(data.message);
       
             // 🔀 userType에 따라 이동
             switch (data.userType) {
               case 0:
                 navigate("/community");
+                alert("일반회원으로 로그인되었습니다.");
                 break;
               case 1:
                 navigate("/cafelist");
+                alert("카페사장으로 로그인되었습니다.");
                 break;
               case 3:
                 navigate("/admin/1");
+                alert("관리자님 로그인되었습니다.");
                 break;
               default:
                 navigate("/");
@@ -91,8 +93,8 @@ const LoginPage = () => {
             </h2>
             {/* <h3 className="login-h3">카페연구소 로그인</h3> */}
             <form onSubmit={handleSubmit}>
-                <input type="text" id="userid" value={userid} onChange={(e) => setUserid(e.target.value)} placeholder="아이디" required/>
-                <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="비밀번호" required/>
+                <input type="text" id="userid" value={userid} onChange={(e) => setUserid(e.target.value)} placeholder="아이디" required autoComplete="userid"/>
+                <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="비밀번호" required autoComplete="new-password"/>
                 <input type="submit" id="submit" value="로그인" />
                 {errorMessage && <div className="lognin-error">{errorMessage}</div>}
             </form>
